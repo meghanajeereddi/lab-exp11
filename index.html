@@ -1,0 +1,58 @@
+<!EXPERIMENT 11:FORM VALIDATION:REG NO-21b01a1261>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="11.css">
+    <script>
+        function validation() {
+            let fname = document.getElementById('field1').value;
+            let lname = document.getElementById('field2').value;
+            let pnum = document.getElementById('field4').value;
+            let count = pnum.length;
+            if (lname == "" || fname == "" || count <10  || count > 10) {
+                if (fname == "") {
+                    let label1 = document.getElementById('label1');
+                    label1.style.visibility = 'visible';
+                }
+                if (lname == "") {
+                    let label2 = document.getElementById('label2');
+                    label2.style.visibility = 'visible';
+                }
+                if (count > 10 || count < 10) {
+                    let label3 = document.getElementById('label3');
+                    label3.style.visibility = 'visible';
+                }
+
+                return false;
+            }
+            else {
+                return true;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <form action="success.html" onsubmit=" return validation();">
+
+        <label for="">First Name</label>
+        <input type="text" class="a" name="" id="field1" placeholder="Ganendhra"><label for="" id="label1"
+            style=" visibility:hidden">(Max 50 letters allowed)</label><br><br>
+        <label for="">Last Name</label>
+        <input type="text" class="a" name="" id="field2" placeholder="Yadav"><label for="" id="label2"
+            style="visibility: hidden;">(Max 50 letters allowed)</label><br><br>
+        <label for="">Emai Id</label>
+        <input type="text" class="b" name="" id="field3" placeholder="ganendhra@gmail.com"><br><br>
+        <label for="">Mobile Number</label>
+        <input type="text" class="c" name="" id="field4" placeholder="7899******"><label for="" id="label3"
+            style="visibility:hidden;">(10 digits allowed)</label><br><br>
+        <input type="submit" class="s" value="Submit">
+    </form>
+</body>
+
+</html>
